@@ -1,4 +1,4 @@
-export default class ScrollSuave {
+export default class SmoothScroll {
   constructor(links, options) {
     this.linksInternos = document.querySelectorAll(links);
     if (options === undefined) {
@@ -17,7 +17,7 @@ export default class ScrollSuave {
   }
 
   addLinkEvent() {
-    linksInternos.forEach((link) => {
+    this.linksInternos.forEach((link) => {
       link.addEventListener("click", this.scrollToSection);
     });
   }
