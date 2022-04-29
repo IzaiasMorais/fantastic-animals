@@ -1,22 +1,31 @@
-export default function initTabNav() {
-  const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
-  const tabContent = document.querySelectorAll('[data-tab="content"] section');
 
-  if(tabMenu.length && tabContent.length) {
-    tabContent[0].classList.add('ativo');
+export default class initTabNav {
 
-    function activeTab(index) {
-      tabContent.forEach((section) => {
-        section.classList.remove('ativo');
-      });
-      const direcao = tabContent[index].dataset.anime;
-      tabContent[index].classList.add('ativo', direcao);
-    }
+  constructor(menu, content) {
+    this.tabMenu = document.querySelectorAll(menu);
+    this.tabContent = document.querySelectorAll(content);
+    this.className = 'ativo';
+  }
 
-    tabMenu.forEach((itemMenu, index) => {
-      itemMenu.addEventListener('click', () => {
-        activeTab(index);
-      });
+  activeTab(index) {
+    this.tabContent.forEach((section) => {
+      section.classList.remove(this.className);
     });
+    const direcao = this.tabContent[index].dataset.anime;
+    this.tabContent[index].classList.add(this.className, direcao);
+  }
+
+  addTabNavEvent() {
+    this.tabMenu.forEach((itemMenu, index) => {
+      itemMenu.addEventListener('click', () => this.activeTab(index));
+    });
+  }
+
+  // Init is actvating two methods inside the object
+  init() {
+    if (this.tabMenu && this.tabContent) {
+      this.activeTab(0);
+      this.addTabNavEvent();
+    }
   }
 }
