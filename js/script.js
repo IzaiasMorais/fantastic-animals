@@ -2,8 +2,9 @@ import SmoothScroll from "./modules/smooth-scroll.js";
 import Accordion from "./modules/accordion.js";
 import TabNav from "./modules/tabnav.js";
 import Modal from "./modules/modal.js";
+import ToolTip from "./modules/tooltip.js";
 
-import initTooltip from "./modules/tooltip.js";
+
 import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initAnimalsFetch from "./modules/animals-fetch.js";
@@ -22,8 +23,12 @@ tabnav.init();
 const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]')
 modal.init();
 
+const toolTip = new ToolTip('[data-tooltip]');
+toolTip.init();
 
-initTooltip();
+
+
+
 initDropdownMenu();
 initMenuMobile();
 initFetchBitcoin();
