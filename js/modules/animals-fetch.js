@@ -1,6 +1,14 @@
-import initAnimaNumeros from "./anima-numeros.js";
+
+import AnimaNumeros from "./anima-numeros.js";
 
 export default function initAnimalsFetch() {
+  function crateAnimal(animal) {
+    const div = document.createElement("div");
+    div.classList.add("numero-animal");
+    div.innerHTML = `<h3>${animal.specie}</h3> <span data-numero>${animal.total}</span>`;
+    return div;
+  }
+
   async function fetchAnimals(url) {
     try {
       const animalsResponse = await fetch(url);
@@ -12,17 +20,13 @@ export default function initAnimalsFetch() {
         const divAnimal = crateAnimal(i);
         numerosGrid.appendChild(divAnimal);
       });
-      initAnimaNumeros();
+
+      const animaNumeros = new AnimaNumeros("[data-numero]", "ativo", ".numeros");
+      animaNumeros.init();
+      
     } catch (erro) {
       console.log(erro);
     }
-  }
-
-  function crateAnimal(animal) {
-    const div = document.createElement("div");
-    div.classList.add("numero-animal");
-    div.innerHTML = `<h3>${animal.specie}</h3> <span data-numero>${animal.total}</span>`;
-    return div;
   }
 
   fetchAnimals("./animalsapi.json");
