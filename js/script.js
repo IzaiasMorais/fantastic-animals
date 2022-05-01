@@ -20,13 +20,19 @@ initAnimacaoScroll();
 
 const smoothScroll = new SmoothScroll('[data-menu="suave"] a[href^="#"]');
 smoothScroll.init();
+
 const accordion = new Accordion('[data-anime="accordion"] dt');
 accordion.init();
+
 const tabnav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section');
 tabnav.init();
+
 const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]')
 modal.init();
+
 const toolTip = new ToolTip('[data-tooltip]');
 toolTip.init();
+
 fetchAnimals("./animalsapi.json", ".numeros-grid");
+
 fetchBitcoin("https://blockchain.info/ticker", '.btc-preco');
