@@ -1,7 +1,7 @@
 
 import AnimaNumeros from "./anima-numeros.js";
 
-export default function initAnimalsFetch() {
+export default function fetchAnimals(url, target) {
   function crateAnimal(animal) {
     const div = document.createElement("div");
     div.classList.add("numero-animal");
@@ -9,11 +9,11 @@ export default function initAnimalsFetch() {
     return div;
   }
 
-  async function fetchAnimals(url) {
+  async function createAnimals() {
     try {
       const animalsResponse = await fetch(url);
       const animalsJSON = await animalsResponse.json();
-      const numerosGrid = document.querySelector(".numeros-grid");
+      const numerosGrid = document.querySelector(target);
       animalsJSON.forEach((i) => {
         // when we active a function using some parameter we receive the
         // return of this function so we can use this to make some projects
@@ -29,5 +29,7 @@ export default function initAnimalsFetch() {
     }
   }
 
-  fetchAnimals("./animalsapi.json");
+  return createAnimals();
+
+  
 }
