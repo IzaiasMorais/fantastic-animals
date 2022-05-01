@@ -4,11 +4,12 @@ import TabNav from "./modules/tabnav.js";
 import Modal from "./modules/modal.js";
 import ToolTip from "./modules/tooltip.js";
 import fetchAnimals from "./modules/animals-fetch.js";
+import initFetchBitcoin from "./modules/fetch-bitcoin.js";
+
 
 
 import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
-import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 import initAnimacaoScroll from "./modules/scroll-animacao.js";
 
 const smoothScroll = new SmoothScroll('[data-menu="suave"] a[href^="#"]');
