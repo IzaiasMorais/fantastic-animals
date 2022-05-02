@@ -11,6 +11,7 @@ import DropdownMenu from "./modules/dropdown-menu.js";
 
 import initMenuMobile from "./modules/menu-mobile.js";
 
+initDropdownMenu();
 initMenuMobile();
 
 const smoothScroll = new SmoothScroll('[data-menu="suave"] a[href^="#"]');
