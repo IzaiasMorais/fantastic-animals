@@ -20,7 +20,6 @@ export default class ScrollAnimation {
   init() {
     if(this.sections.length) {
       window.addEventListener('scroll', this.animaScroll);
-      console.log(this);
       this.animaScroll();
     }
   }
