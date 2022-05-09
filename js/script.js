@@ -8,6 +8,7 @@ import fetchBitcoin from "./modules/fetch-bitcoin.js";
 import ScrollAnimation from "./modules/scroll-animacao.js";
 import DropdownMenu from "./modules/dropdown-menu.js";
 import MenuMobile from "./modules/menu-mobile.js";
+import { SlideNav } from "./modules/slide.js"; 
 
 const smoothScroll = new SmoothScroll('[data-menu="suave"] a[href^="#"]');
 smoothScroll.init();
@@ -36,3 +37,15 @@ dropDownMenu.init();
 
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
 menuMobile.init();
+
+// SLIDE JS
+
+const slide = new SlideNav(".slide", ".slide-wrapper");
+
+slide.init();
+
+slide.changeSlide(0);
+
+// slide.addArrow('.prev', '.next');
+
+slide.addControl('.custom-controls');
